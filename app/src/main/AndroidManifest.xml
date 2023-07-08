@@ -13,14 +13,17 @@
         android:theme="@style/Theme.KeepersInventory"
         tools:targetApi="31">
         <activity
-            android:name=".SignInActivity"
+            android:name=".InventoryAdapter"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".entryUI.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".entryUI.SignUpActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".FirstLandingActivity"
+            android:name=".entryUI.FirstLandingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

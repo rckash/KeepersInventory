@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity">
+    tools:context=".entryUI.SignInActivity">
 
     <TextView
         android:id="@+id/tv_logo_text_signUp"
@@ -67,7 +67,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_signUp_signIn"
+        android:id="@+id/btn_signIn_signIn"
         style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -120,9 +120,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:fontFamily="@font/work_sans_bold"
+        android:fontFamily="@font/work_sans_medium"
         android:text="Sign In"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tf_email_signIn"
         app:layout_constraintTop_toBottomOf="@+id/tv_logo_text_signUp" />
 

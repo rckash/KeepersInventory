@@ -1,4 +1,4 @@
-package com.example.keepersinventory
+package com.example.keepersinventory.entryUI
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

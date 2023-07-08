@@ -1,8 +1,9 @@
-package com.example.keepersinventory
+package com.example.keepersinventory.entryUI
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.keepersinventory.MainActivity
 import com.example.keepersinventory.databinding.ActivitySignInBinding
 
 class SignInActivity : AppCompatActivity() {
@@ -20,6 +21,11 @@ class SignInActivity : AppCompatActivity() {
         }
         binding.tvSignUpSignIn.setOnClickListener {
             val myIntent = Intent(this@SignInActivity, SignUpActivity::class.java)
+            startActivity(myIntent)
+            finish()
+        }
+        binding.btnSignInSignIn.setOnClickListener {
+            val myIntent = Intent(this@SignInActivity, MainActivity::class.java)
             startActivity(myIntent)
             finish()
         }
