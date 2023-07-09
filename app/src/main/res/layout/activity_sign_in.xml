@@ -122,6 +122,7 @@
         android:layout_marginTop="50dp"
         android:fontFamily="@font/work_sans_medium"
         android:text="Sign In"
+        android:textColor="@color/colorSecondary"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tf_email_signIn"

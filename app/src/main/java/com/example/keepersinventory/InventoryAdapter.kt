@@ -7,8 +7,8 @@ import com.example.keepersinventory.databinding.InventoryItemLayoutBinding
 
 class InventoryAdapter(private val inventories: List<Inventory>): RecyclerView.Adapter<InventoryItemViewHolder>() {
 
-//    var onDeleteClick: ((Inventory) -> Unit)? = null
-//    var onUpdateClick: ((Inventory) -> Unit)? = null
+    var onDeleteClick: ((Inventory) -> Unit)? = null
+    var onUpdateClick: ((Inventory) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InventoryItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -22,9 +22,14 @@ class InventoryAdapter(private val inventories: List<Inventory>): RecyclerView.A
 
     override fun onBindViewHolder(holder: InventoryItemViewHolder, position: Int) {
         holder.bind(inventories[position])
-//        holder.binding.apply {
-//
-//        }
+        holder.binding.apply {
+            btnUpdate.setOnClickListener {
+            onUpdateClick?.invoke(inventories[position])
+            }
+            btnDelete.setOnClickListener {
+                onDeleteClick?.invoke(inventories[position])
+            }
+        }
     }
 
 }
