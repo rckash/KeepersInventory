@@ -37,8 +37,26 @@ class MainActivity : AppCompatActivity() {
         adapter = InventoryAdapter(inventoryList)
         recyclerView.adapter = adapter
 
+        //on-click listeners
         binding.floatingActionButton.setOnClickListener {
             showAddDialog()
+        }
+
+        binding.materialToolbar.setOnMenuItemClickListener {
+            val alertDialogBuilder = AlertDialog.Builder(this)
+            alertDialogBuilder.setTitle("About the Author")
+
+            val dialogLayout = layoutInflater.inflate(R.layout.about_layout, null)
+            alertDialogBuilder.setView(dialogLayout)
+
+            alertDialogBuilder.setPositiveButton("Nice") {dialog, _ ->
+                dialog.dismiss()
+            }
+
+            val alertDialog: AlertDialog = alertDialogBuilder.create()
+            alertDialog.show()
+
+            true
         }
 
         adapter.onUpdateClick = { inventory ->

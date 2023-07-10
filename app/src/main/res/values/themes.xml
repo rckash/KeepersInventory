@@ -4,6 +4,9 @@
         <!-- Customize your light theme here. -->
 
     </style>
+    <style name="circle">
+        <item name="cornerSize">50%</item>
+    </style>
 
     <style name="Theme.KeepersInventory" parent="Base.Theme.KeepersInventory" />
 </resources>

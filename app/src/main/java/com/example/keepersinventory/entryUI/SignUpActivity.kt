@@ -35,27 +35,14 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(myIntent)
             finish()
         }
-
-
         binding.btnSignUpSignUp.setOnClickListener {
             val username = binding.tfUsernameSignUp.editText?.text.toString()
             val password = binding.tfPasswordSignUp.editText?.text.toString()
-
-            var newAccount = Account(0, username, password)
-            //add new data to database table
-            addData(newAccount)
-            //add new note to list
-            accountList.add(newAccount)
-            Log.d("SIGNUP", "Registered: $newAccount")
-
-            //redirection to sign in activity
-            val myIntent = Intent(applicationContext, SignInActivity::class.java)
-            startActivity(myIntent)
-            finish()
+            registerUser(username, password)
         }
 
-
     }
+
     private fun getData(): MutableList<Account> {
         return accountDatabaseHelper.getAllData()
     }
@@ -63,4 +50,18 @@ class SignUpActivity : AppCompatActivity() {
         accountDatabaseHelper.insertData(account)
         Toast.makeText(this, "Account Registered Successfully", Toast.LENGTH_SHORT).show()
     }
+    private fun registerUser(username: String, password: String) {
+        var newAccount = Account(0, username, password)
+        //add new data to database table
+        addData(newAccount)
+        //add new note to list
+        accountList.add(newAccount)
+        Log.d("SIGNUP", "Registered: $newAccount")
+
+        //redirection to sign in activity
+        val myIntent = Intent(applicationContext, SignInActivity::class.java)
+        startActivity(myIntent)
+        finish()
+    }
+
 }

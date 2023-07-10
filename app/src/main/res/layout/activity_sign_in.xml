@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tf_email_signIn"
+        android:id="@+id/tf_username_signIn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:fontFamily="@font/work_sans_medium"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:textColor="@color/colorSecondary"
             android:textSize="20sp" />
 
@@ -54,9 +54,9 @@
         app:endIconMode="password_toggle"
         app:helperTextEnabled="true"
         app:hintTextColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="@+id/tf_email_signIn"
-        app:layout_constraintStart_toStartOf="@+id/tf_email_signIn"
-        app:layout_constraintTop_toBottomOf="@+id/tf_email_signIn">
+        app:layout_constraintEnd_toEndOf="@+id/tf_username_signIn"
+        app:layout_constraintStart_toStartOf="@+id/tf_username_signIn"
+        app:layout_constraintTop_toBottomOf="@+id/tf_username_signIn">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -127,7 +127,7 @@
         android:textColor="@color/colorSecondary"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tf_email_signIn"
+        app:layout_constraintStart_toStartOf="@+id/tf_username_signIn"
         app:layout_constraintTop_toBottomOf="@+id/tv_logo_text_signUp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

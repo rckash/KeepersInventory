@@ -27,6 +27,26 @@ class AccountDatabaseHelper(context: Context): SQLiteOpenHelper( context, DATABA
         onCreate(db)
     }
 
+    //check for account credentials
+    fun accountCheck(account: Account): Any {
+        val db = readableDatabase
+
+        val cursor = db.rawQuery("SELECT * FROM account WHERE username='${account.username}' AND password='${account.password}'", null)
+        val checkedAccountList = mutableListOf<Account>()
+
+        while (cursor.moveToNext()) {
+            val id = cursor.getInt(0)
+            val username = cursor.getString(1)
+            val password = cursor.getString(2)
+
+            var newAccount = Account(id, username, password)
+            checkedAccountList.add(newAccount)
+        }
+
+        cursor.close()
+        return !checkedAccountList.isNullOrEmpty()
+    }
+
     //CRUD function
 
     //CREATE
