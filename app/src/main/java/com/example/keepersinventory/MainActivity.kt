@@ -2,15 +2,15 @@ package com.example.keepersinventory
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.provider.SyncStateContract.Helpers.update
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.keepersinventory.databinding.ActivityMainBinding
 import com.example.keepersinventory.databinding.DialogLayoutBinding
-import java.nio.file.Files.delete
+import com.example.keepersinventory.inventoryDatabase.DatabaseHelper
+import com.example.keepersinventory.inventoryDatabase.Inventory
+import com.example.keepersinventory.inventoryDatabase.InventoryAdapter
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -26,13 +26,6 @@ class MainActivity : AppCompatActivity() {
         //recyclerview setup
         recyclerView = binding.rvMain
         recyclerView.layoutManager = LinearLayoutManager(this)
-
-        //recyclerview test
-//        inventoryList = mutableListOf(
-//            Inventory( 0, "Wood","An item from tree used for building infrastructures and crafts", 2.0f),
-//            Inventory( 0, "Tiles","An item from tree used for flooring", 12.0f),
-//            Inventory( 0, "Medical Pills","An item from tree used for medication", 3.0f)
-//        )
 
         //databaseHelper Instantiation
         databaseHelper = DatabaseHelper(this)
@@ -50,8 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         adapter.onUpdateClick = { inventory ->
             val alertDialogBuilder = AlertDialog.Builder(this)
-            alertDialogBuilder.setTitle("Edit Note")
-            alertDialogBuilder.setMessage("Edit this note?")
+            alertDialogBuilder.setTitle("Edit Item")
 
             val dialogLayout = layoutInflater.inflate(R.layout.dialog_layout, null)
             val dialogBinding = DialogLayoutBinding.bind(dialogLayout)
@@ -62,11 +54,11 @@ class MainActivity : AppCompatActivity() {
             dialogBinding.tfQuantityDialog.editText?.setText(inventory.quantity.toString())
 
             alertDialogBuilder.setPositiveButton("Done") { dialog, _ ->
-                val item_name = dialogBinding.tfItemNameDialog.editText?.text.toString()
+                val itemName = dialogBinding.tfItemNameDialog.editText?.text.toString()
                 val description = dialogBinding.tfDescriptionDialog.editText?.text.toString()
-                val quantity = dialogBinding.tfQuantityDialog.editText?.text.toString().toFloat()
+                val quantity = dialogBinding.tfQuantityDialog.editText?.text.toString().toInt()
 
-                val newItem = Inventory(inventory.id, item_name, description, quantity)
+                val newItem = Inventory(inventory.id, itemName, description, quantity)
                 updateData(newItem)
 
                 //viewholder index finder
@@ -88,8 +80,8 @@ class MainActivity : AppCompatActivity() {
 
         adapter.onDeleteClick = { inventory ->
             val alertDialogBuilder = AlertDialog.Builder(this)
-            alertDialogBuilder.setTitle("Delete Note")
-            alertDialogBuilder.setMessage("This item will be gone forever?")
+            alertDialogBuilder.setTitle("Delete Item")
+            alertDialogBuilder.setMessage("This item will be gone forever.")
 
             alertDialogBuilder.setPositiveButton("Delete") { dialog, _ ->
                 //delete from database
@@ -120,11 +112,11 @@ class MainActivity : AppCompatActivity() {
         alertDialogBuilder.setView(dialogLayout)
 
         alertDialogBuilder.setPositiveButton("Done") { dialog, _ ->
-            val item_name = dialogBinding.tfItemNameDialog.editText?.text.toString()
+            val itemName = dialogBinding.tfItemNameDialog.editText?.text.toString()
             val description = dialogBinding.tfDescriptionDialog.editText?.text.toString()
-            val quantity = dialogBinding.tfQuantityDialog.editText?.text.toString().toFloat()
+            val quantity = dialogBinding.tfQuantityDialog.editText?.text.toString().toInt()
 
-            var newItem = Inventory(0, item_name, description, quantity)
+            var newItem = Inventory(0, itemName, description, quantity)
             //add new data to database table
             addData(newItem)
             //add new note to list

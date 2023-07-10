@@ -1,4 +1,4 @@
-package com.example.keepersinventory
+package com.example.keepersinventory.inventoryDatabase
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.keepersinventory.databinding.InventoryItemLayoutBinding

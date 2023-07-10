@@ -1,4 +1,4 @@
-package com.example.keepersinventory
+package com.example.keepersinventory.inventoryDatabase
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -17,7 +17,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper( context, DATABASE_NAME
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             item_name TEXT,
             description TEXT,
-            quantity DOUBLE(4,2)
+            quantity INTEGER
             )
         """.trimIndent())
     }
@@ -49,7 +49,7 @@ class DatabaseHelper(context: Context): SQLiteOpenHelper( context, DATABASE_NAME
             val id = cursor.getInt(0)
             val item_name = cursor.getString(1)
             val description = cursor.getString(2)
-            val quantity = cursor.getFloat(3)
+            val quantity = cursor.getInt(3)
 
             var newInventory = Inventory(id, item_name, description, quantity)
             inventoryList.add(newInventory)

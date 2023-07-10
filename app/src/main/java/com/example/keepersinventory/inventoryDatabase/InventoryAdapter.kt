@@ -1,4 +1,4 @@
-package com.example.keepersinventory
+package com.example.keepersinventory.inventoryDatabase
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

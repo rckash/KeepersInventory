@@ -3,12 +3,12 @@
     <string name="get_started_for_free">Get Started For Free</string>
     <string name="track_and_manage_your_inventory_securely_on_your_phone">Track and manage your inventory securely on your phone</string>
     <string name="app_name_logo">Keepers</string>
-    <string name="enter_email">Your Email Address</string>
+    <string name="enter_username">Enter Username</string>
     <string name="sign_up">Sign Up</string>
     <string name="choose_a_password">Choose a password</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="sign_in">Sign In</string>
-    <string name="enter_email_address">Enter Email Address</string>
+    <string name="choose_a_username">Choose a username</string>
     <string name="enter_password">Enter Password</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
 </resources>
