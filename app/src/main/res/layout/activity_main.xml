@@ -20,8 +20,8 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#C8BA3A"
+        android:layout_height="40dp"
+        android:background="@color/colorSecondary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
             android:contentDescription="Floating Action Button for adding items"
             app:backgroundTint="#C8BA3A"
             app:srcCompat="@drawable/baseline_add_24" />
