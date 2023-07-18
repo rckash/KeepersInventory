@@ -51,7 +51,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="30dp"
             android:contentDescription="Floating Action Button for adding items"
-            app:backgroundTint="#C8BA3A"
+            app:backgroundTint="#CDC051"
             app:srcCompat="@drawable/baseline_add_24" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
